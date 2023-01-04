@@ -10,7 +10,7 @@ function App() {
       .then((r) => r.json())
       .then((data) => setAllPets(data));
   }, []);
-
+  console.log(allPets);
   return (
     <div>
       <Home />
