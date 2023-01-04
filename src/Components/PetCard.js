@@ -1,3 +1,5 @@
+import Comments from "./Comments";
+
 function PetCard({ pet }) {
   return (
     <div className="petCard">
@@ -7,17 +9,8 @@ function PetCard({ pet }) {
         <p>Breed: {pet.breed}</p>
         <p>Species: {pet.species}</p>
         <p>Age: {pet.age}</p>
-        <p>
-          Comments:
-          {pet.comments.map((comment) => {
-            return (
-              <div key={comment.id}>
-                <li>{comment.comment}</li>
-              </div>
-            );
-          })}
-        </p>
       </li>
+      <Comments pet={pet} />
     </div>
   );
 }
