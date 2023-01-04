@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+body {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background-color: cornsilk;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", sans-serif;
+  margin-bottom: 1em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+nav {
+  background-color: cornsilk;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1rem;
+  padding: 0.25rem;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: firebrick;
+  border-bottom: 2px solid firebrick;
+  transition: 0.1s;
+}
+
+nav a:hover,
+nav a:active {
+  color: tomato;
+  border-bottom: 2px solid tomato;
+}
+
+nav a.active {
+  color: white;
+  background: tomato;
+}
+
+#home {
+  height: 50vh;
+  min-height: 400px;
+  background-color: cornsilk;
+}
+
+/* styles */
+ul {
+  list-style: none;
+}
+#dogs,
+#cats {
+  display: flex;
+  justify-content: center;
+}
+.dogCard > li,
+.catCard > li {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 8px;
+  width: 500px;
+}
+
+.dogBtn,
+.catBtn {
+  margin: 25px;
+}
+.newsletter {
+  text-align: center;
+}
+.input {
+  margin-bottom: 10px;
+  width: 40%;
+}
+.pet-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
