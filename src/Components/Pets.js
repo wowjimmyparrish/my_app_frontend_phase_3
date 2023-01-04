@@ -1,3 +1,5 @@
+import PetCard from "./PetCard";
+
 function Pets({ allPets }) {
   const petArray = allPets.map((pet) => <PetCard key={pet.id} pet={pet} />);
 
