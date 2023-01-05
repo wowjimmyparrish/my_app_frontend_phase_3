@@ -16,13 +16,3 @@ function PetCard({ pet }) {
 }
 
 export default PetCard;
-
-// {people.map((person, index) => {
-//     return (
-//       <div key={index}>
-//         <h2>Name: {person.name}</h2>
-
-//         {person.pets.map((pet, index) => {
-//           return (
-//             <div key={index}>
-//               <h2>Pet: {pet}</h2>
