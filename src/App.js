@@ -11,6 +11,11 @@ function App() {
       .then((data) => setAllPets(data));
   }, []);
   console.log(allPets);
+
+  function addPet(newPet) {
+    setAllPets([newPet, ...allPets]);
+  }
+
   return (
     <div>
       <Home />
