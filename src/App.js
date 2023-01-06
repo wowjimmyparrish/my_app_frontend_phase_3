@@ -16,10 +16,6 @@ function App() {
   }, []);
   console.log(allPets);
 
-  function addPet(newPet) {
-    setAllPets([newPet, ...allPets]);
-  }
-
   return (
     <div>
       <NavBar onChangePage={setPage} />
@@ -29,7 +25,7 @@ function App() {
           <Pets allPets={allPets} />
         </Route>
         <Route path="/addpet">
-          <AddPet addPet={addPet} />
+          <AddPet />
         </Route>
         <Route path="*">
           <h1> 404 Page Not Found</h1>

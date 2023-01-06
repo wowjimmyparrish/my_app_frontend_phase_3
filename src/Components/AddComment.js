@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Comments({ pet }) {
+function Comments() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("clicked");
@@ -14,14 +14,6 @@ function Comments({ pet }) {
           Submit
         </button>
       </form>
-      <h3>Comments:</h3>
-      {pet.comments.map((comment) => {
-        return (
-          <div key={comment.id}>
-            <li>{comment.comment}</li>
-          </div>
-        );
-      })}
     </div>
   );
 }

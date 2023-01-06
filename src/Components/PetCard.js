@@ -1,4 +1,4 @@
-import Comments from "./Comments";
+import AddComment from "./AddComment";
 
 function PetCard({ pet }) {
   return (
@@ -10,7 +10,15 @@ function PetCard({ pet }) {
         <p>Species: {pet.species}</p>
         <p>Age: {pet.age}</p>
       </li>
-      <Comments pet={pet} />
+      <AddComment />
+      <h3>Comments:</h3>
+      {pet.comments.map((comment) => {
+        return (
+          <div key={comment.id}>
+            <li>{comment.comment}</li>
+          </div>
+        );
+      })}
     </div>
   );
 }
