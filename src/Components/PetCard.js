@@ -1,6 +1,6 @@
 import AddComment from "./AddComment";
 
-function PetCard({ pet }) {
+function PetCard({ pet, addComment }) {
   return (
     <div className="petCard">
       <li>
@@ -10,15 +10,7 @@ function PetCard({ pet }) {
         <p>Species: {pet.species}</p>
         <p>Age: {pet.age}</p>
       </li>
-      <AddComment />
-      <h3>Comments:</h3>
-      {pet.comments.map((comment) => {
-        return (
-          <div key={comment.id}>
-            <li>{comment.comment}</li>
-          </div>
-        );
-      })}
+      <AddComment pet={pet} addComment={addComment} />
     </div>
   );
 }

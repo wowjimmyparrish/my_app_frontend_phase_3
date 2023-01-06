@@ -16,13 +16,24 @@ function App() {
   }, []);
   console.log(allPets);
 
+  function addComment(newComment) {
+    setAllPets((prevAllPets) => {
+      return prevAllPets.map((pet) => {
+        if (pet.id === newComment.pet_id) {
+          return { ...pet, comments: [...pet.comments, newComment] };
+        }
+        return pet;
+      });
+    });
+  }
+
   return (
     <div>
       <NavBar onChangePage={setPage} />
       <Switch>
         <Route exact path="/">
           <Home />
-          <Pets allPets={allPets} />
+          <Pets allPets={allPets} addComment={addComment} />
         </Route>
         <Route path="/addpet">
           <AddPet />
