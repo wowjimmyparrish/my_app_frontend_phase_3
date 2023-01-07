@@ -14,7 +14,24 @@ function App() {
       .then((r) => r.json())
       .then((data) => setAllPets(data));
   }, []);
-  console.log(allPets);
+
+  function editComment(comment) {
+    const requestOptions = {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(comment),
+    };
+
+    fetch(`http://localhost:9292/comments/${comment.id}`, requestOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        addComment(data);
+      });
+
+    console.log(comment);
+  }
 
   function addComment(newComment) {
     setAllPets((prevAllPets) => {
@@ -25,10 +42,6 @@ function App() {
         return pet;
       });
     });
-
-    function editComment() {
-      console.log("fuck");
-    }
   }
 
   return (
@@ -37,7 +50,11 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
-          <Pets allPets={allPets} addComment={addComment} />
+          <Pets
+            allPets={allPets}
+            addComment={addComment}
+            editComment={editComment}
+          />
         </Route>
         <Route path="/addpet">
           <AddPet />

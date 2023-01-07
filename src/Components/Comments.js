@@ -5,15 +5,16 @@ function Comments({ pet, editComment }) {
     <div>
       <h3>Comments:</h3>
       {pet.comments.map((comment) => {
-        return <CommentCard key={comment.id} comment={comment} />;
+        return (
+          <CommentCard
+            key={comment.id}
+            comment={comment}
+            editComment={editComment}
+          />
+        );
       })}
     </div>
   );
 }
-// const [edit, setEdit] = useState(true);
 
-//   function handleClick() {
-//     setEdit(!edit);
-//     console.log("inside", edit);
-//   }
 export default Comments;
