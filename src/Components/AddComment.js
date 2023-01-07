@@ -5,7 +5,6 @@ function AddComment({ pet, addComment }) {
     comment: "",
     pet_id: pet.id,
   });
-  const [edit, setEdit] = useState(true);
 
   const requestOptions = {
     method: "POST",
@@ -38,15 +37,6 @@ function AddComment({ pet, addComment }) {
           Submit
         </button>
       </form>
-      <h3>Comments:</h3>
-      {pet.comments.map((comment) => {
-        return (
-          <div key={comment.id}>
-            <li>{comment.comment}</li>
-            <button>Edit</button>
-          </div>
-        );
-      })}
     </div>
   );
 }

@@ -25,6 +25,10 @@ function App() {
         return pet;
       });
     });
+
+    function editComment() {
+      console.log("fuck");
+    }
   }
 
   return (

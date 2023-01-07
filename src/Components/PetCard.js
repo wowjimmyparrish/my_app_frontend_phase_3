@@ -1,6 +1,7 @@
 import AddComment from "./AddComment";
+import Comments from "./Comments";
 
-function PetCard({ pet, addComment }) {
+function PetCard({ pet, addComment, editComment }) {
   return (
     <div className="petCard">
       <li>
@@ -10,6 +11,7 @@ function PetCard({ pet, addComment }) {
         <p>Species: {pet.species}</p>
         <p>Age: {pet.age}</p>
       </li>
+      <Comments pet={pet} editComment={editComment} />
       <AddComment pet={pet} addComment={addComment} />
     </div>
   );
