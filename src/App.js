@@ -15,22 +15,20 @@ function App() {
       .then((data) => setAllPets(data));
   }, []);
 
-  function editComment(comment) {
+  function editComment(data) {
+    console.log("data passed into editComment", data);
     const requestOptions = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(comment),
+      body: JSON.stringify({ comment: data.comment }),
     };
-
-    fetch(`http://localhost:9292/comments/${comment.id}`, requestOptions)
+    fetch(`http://localhost:9292/comments/${data.id}`, requestOptions)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        addComment(data);
+        console.log("response from patch", data);
       });
-
-    console.log(comment);
   }
 
   function addComment(newComment) {
