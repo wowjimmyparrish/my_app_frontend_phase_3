@@ -27,6 +27,7 @@ function App() {
       })
       .then((data) => {
         console.log("response from patch", data);
+        updateComment(data);
       });
   }
 
@@ -41,11 +42,16 @@ function App() {
     });
   }
 
-  function addComment(updatedComment) {
+  function updateComment(updatedComment) {
+    console.log(updatedComment);
     setAllPets((prevAllPets) => {
       return prevAllPets.map((pet) => {
         if (pet.id === updatedComment.pet_id) {
-          return { ...pet, comments: pet.comments.map((c) => console.log(c)) };
+          return {
+            ...pet,
+            comments: [updatedComment],
+            // comments: [pet.comments.map((c) => console.log(c))],
+          };
         }
         return pet;
       });
