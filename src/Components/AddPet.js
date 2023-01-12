@@ -25,7 +25,6 @@ function AddPet({ addPets }) {
       })
       .then((data) => {
         addPets(data);
-        console.log(data);
         history.push("/");
       });
   }

@@ -41,6 +41,17 @@ function App() {
     });
   }
 
+  function addComment(updatedComment) {
+    setAllPets((prevAllPets) => {
+      return prevAllPets.map((pet) => {
+        if (pet.id === updatedComment.pet_id) {
+          return { ...pet, comments: pet.comments.map((c) => console.log(c)) };
+        }
+        return pet;
+      });
+    });
+  }
+
   function deleteComment(comment) {
     setAllPets((prevAllPets) => {
       return prevAllPets.map((pet) => {
@@ -56,8 +67,7 @@ function App() {
   }
 
   function addPets(newPet) {
-    allPets.push(newPet);
-    setAllPets({ allPets });
+    setAllPets([...allPets, newPet]);
     console.log("allPets", allPets);
   }
 
