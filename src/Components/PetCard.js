@@ -1,7 +1,7 @@
 import AddComment from "./AddComment";
 import Comments from "./Comments";
 
-function PetCard({ pet, addComment, editComment }) {
+function PetCard({ pet, addComment, editComment, deleteComment }) {
   return (
     <div className="petCard">
       <li>
@@ -11,7 +11,11 @@ function PetCard({ pet, addComment, editComment }) {
         <p>Species: {pet.species}</p>
         <p>Age: {pet.age}</p>
       </li>
-      <Comments pet={pet} editComment={editComment} />
+      <Comments
+        pet={pet}
+        editComment={editComment}
+        deleteComment={deleteComment}
+      />
       <AddComment pet={pet} addComment={addComment} />
     </div>
   );

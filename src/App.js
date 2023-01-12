@@ -16,7 +16,6 @@ function App() {
   }, []);
 
   function editComment(data) {
-    console.log("data passed into editComment", data);
     const requestOptions = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -42,6 +41,26 @@ function App() {
     });
   }
 
+  function deleteComment(comment) {
+    setAllPets((prevAllPets) => {
+      return prevAllPets.map((pet) => {
+        if (pet.id === comment.pet_id) {
+          const filteredComments = pet.comments.filter(
+            (prevComment) => prevComment.id !== comment.id
+          );
+          return { ...pet, comments: filteredComments };
+        }
+        return pet;
+      });
+    });
+  }
+
+  function addPets(newPet) {
+    allPets.push(newPet);
+    setAllPets({ allPets });
+    console.log("allPets", allPets);
+  }
+
   return (
     <div>
       <NavBar onChangePage={setPage} />
@@ -52,10 +71,11 @@ function App() {
             allPets={allPets}
             addComment={addComment}
             editComment={editComment}
+            deleteComment={deleteComment}
           />
         </Route>
         <Route path="/addpet">
-          <AddPet />
+          <AddPet addPets={addPets} />
         </Route>
         <Route path="*">
           <h1> 404 Page Not Found</h1>

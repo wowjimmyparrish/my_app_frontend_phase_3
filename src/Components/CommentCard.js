@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function CommentCard({ comment, editComment, id }) {
+function CommentCard({ comment, editComment, deleteComment }) {
   const [edit, setEdit] = useState(true);
   const [data, setData] = useState({
     comment: comment.comment,
     id: comment.id,
   });
-  console.log("KEY", id);
+
   function handleEditClick(e) {
     e.preventDefault();
     setEdit(!edit);
@@ -16,7 +16,22 @@ function CommentCard({ comment, editComment, id }) {
     e.preventDefault();
     editComment(data);
   }
+  const requestOptions = {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
 
+  function handleDelete(e) {
+    e.preventDefault();
+    fetch(`http://localhost:9292/comments/${data.id}`, requestOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        deleteComment(data);
+      });
+  }
   return (
     <div>
       <form className="comment-form">
@@ -32,7 +47,10 @@ function CommentCard({ comment, editComment, id }) {
           {edit ? "Edit" : "Save"}
         </button>
         <button type="submit" onClick={handleSaveClick}>
-          REAL SAVE
+          Save
+        </button>
+        <button type="submit" onClick={handleDelete}>
+          Delete
         </button>
       </form>
     </div>

@@ -20,6 +20,7 @@ function AddComment({ pet, addComment }) {
       })
       .then((data) => {
         addComment(data);
+        setData({ comment: "", pet_id: pet.id });
       });
   }
 
