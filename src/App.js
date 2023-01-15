@@ -45,12 +45,19 @@ function App() {
     setAllPets((prevAllPets) => {
       return prevAllPets.map((pet) => {
         if (pet.id === updatedComment.pet_id) {
-          const filteredComments = pet.comments.filter(
-            (prevComment) => prevComment.id !== updatedComment.id
-          );
-
-          return { ...pet, comments: [...filteredComments, updatedComment] };
+          return {
+            ...pet,
+            comments: pet.comments.map((comment) =>
+              comment.id === updatedComment.id ? updatedComment : comment
+            ),
+          };
         }
+        //   const filteredComments = pet.comments.filter(
+        //     (prevComment) => prevComment.id !== updatedComment.id
+        //   );
+
+        //   return { ...pet, comments: [...filteredComments, updatedComment] };
+        // }
         return pet;
       });
     });
