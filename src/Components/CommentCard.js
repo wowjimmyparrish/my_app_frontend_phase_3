@@ -15,6 +15,7 @@ function CommentCard({ comment, editComment, deleteComment }) {
   function handleSaveClick(e) {
     e.preventDefault();
     editComment(data);
+    setEdit(!edit);
   }
   const requestOptions = {
     method: "DELETE",
@@ -35,20 +36,28 @@ function CommentCard({ comment, editComment, deleteComment }) {
   return (
     <div>
       <form className="comment-form">
-        <input
-          className="input"
-          type="text"
-          placeholder="Comment"
-          value={data.comment}
-          disabled={edit}
-          onChange={(e) => setData({ comment: e.target.value, id: comment.id })}
-        ></input>
-        <button type="submit" onClick={handleEditClick}>
+        {edit ? (
+          <p className="input">{data.comment}</p>
+        ) : (
+          <input
+            className="input"
+            type="text"
+            placeholder="Comment"
+            value={data.comment}
+            disabled={edit}
+            onChange={(e) =>
+              setData({ comment: e.target.value, id: comment.id })
+            }
+          ></input>
+        )}
+
+        <button
+          type="submit"
+          onClick={edit ? handleEditClick : handleSaveClick}
+        >
           {edit ? "Edit" : "Save"}
         </button>
-        <button type="submit" onClick={handleSaveClick}>
-          Save
-        </button>
+
         <button type="submit" onClick={handleDelete}>
           Delete
         </button>

@@ -26,7 +26,6 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        console.log("response from patch", data);
         updateComment(data);
       });
   }
@@ -43,15 +42,14 @@ function App() {
   }
 
   function updateComment(updatedComment) {
-    console.log(updatedComment);
     setAllPets((prevAllPets) => {
       return prevAllPets.map((pet) => {
         if (pet.id === updatedComment.pet_id) {
-          return {
-            ...pet,
-            comments: [updatedComment],
-            // comments: [pet.comments.map((c) => console.log(c))],
-          };
+          const filteredComments = pet.comments.filter(
+            (prevComment) => prevComment.id !== updatedComment.id
+          );
+
+          return { ...pet, comments: [...filteredComments, updatedComment] };
         }
         return pet;
       });
@@ -74,7 +72,6 @@ function App() {
 
   function addPets(newPet) {
     setAllPets([...allPets, newPet]);
-    console.log("allPets", allPets);
   }
 
   return (

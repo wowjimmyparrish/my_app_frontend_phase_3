@@ -93,7 +93,7 @@ ul {
   text-align: center;
 }
 .input {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   width: 40%;
 }
 .pet-form {
@@ -101,4 +101,15 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.comment-form {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.comment-form button {
+  margin: 6px;
 }
