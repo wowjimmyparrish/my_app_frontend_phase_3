@@ -1,6 +1,6 @@
 # Description
 
-Pettown is an app where you can add pictures of your pets along with details and comments.  Comments can be edited or deleted at any time. 
+PetTown is an app where you can add pictures of your pets along with details and comments.  Comments can be edited or deleted at any time. 
 
 ## Installation Instructions
 
