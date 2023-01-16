@@ -113,3 +113,10 @@ ul {
 .comment-form button {
   margin: 6px;
 }
+
+.pet-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
