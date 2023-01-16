@@ -34,10 +34,10 @@ function CommentCard({ comment, editComment, deleteComment }) {
       });
   }
   return (
-    <div>
+    <div className="comment-section">
       <form className="comment-form">
         {edit ? (
-          <p className="input">{data.comment}</p>
+          <p className="comment">{data.comment}</p>
         ) : (
           <input
             className="input"
@@ -50,17 +50,18 @@ function CommentCard({ comment, editComment, deleteComment }) {
             }
           ></input>
         )}
+        <div className="button-container">
+          <button
+            type="submit"
+            onClick={edit ? handleEditClick : handleSaveClick}
+          >
+            {edit ? "Edit" : "Save"}
+          </button>
 
-        <button
-          type="submit"
-          onClick={edit ? handleEditClick : handleSaveClick}
-        >
-          {edit ? "Edit" : "Save"}
-        </button>
-
-        <button type="submit" onClick={handleDelete}>
-          Delete
-        </button>
+          <button type="submit" onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );
